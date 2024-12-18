@@ -1,4 +1,13 @@
 patch:
+  # Make conversion from pinyin strict.
+  speller/algebra:
+    # It looks like this is neeeded to show conversion candidates
+    - derive/^([a-z]+)[0-5]$/$1/
+    # Those are used for inputting tones
+    - xlit 1234 -/<\
+    - derive/^(.*)-$/$1;/
+    - derive/^(.*)<$/$1,/
+    - derive/^(.*)\\$/$1>/
   stroke/enable_completion: true
   stroke/prefix: uI
   radical_reverse_lookup/prefix: uU
